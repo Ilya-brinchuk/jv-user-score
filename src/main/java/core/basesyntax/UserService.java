@@ -4,9 +4,10 @@ import core.basesyntax.exception.UserNotFoundException;
 
 public class UserService {
 
-    public int getUserScore(String[] records, String email) throws UserNotFoundException {
+    public int getUserScore(String[] records, String email) {
         for (int i = 0; i < records.length; i++) {
-            if (records[i].split(":")[0].equals(email)) {
+            String dataEmail = records[i].split(":")[0];
+            if (dataEmail.equals(email)) {
                 return Integer.parseInt(records[i].split(":")[1]);
             }
         }
